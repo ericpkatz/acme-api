@@ -52,4 +52,13 @@ describe('api', ()=> {
       });
     });
   });
+  describe('GET /api/products', ()=> {
+    it('returns 3 products', ()=> {
+      return app.get('/api/products')
+        .expect(200)
+        .then(response => {
+          expect(response.body.length).to.equal(3);
+        });
+    });
+  });
 });

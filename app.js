@@ -19,6 +19,21 @@ const users = [
     favorite: 'bar'
   }
 ];
+
+const products = [
+  {
+    id: 1,
+    name: 'foo'
+  },
+  {
+    id: 2,
+    name: 'bar'
+  },
+  {
+    id: 3,
+    name: 'bazz'
+  }
+];
 app.use(require('cors')());
 
 app.use(require('body-parser').json());
@@ -43,6 +58,10 @@ app.get('/api/me', ( req, res, next)=> {
   catch(ex){
     res.sendStatus(401);
   }
+});
+
+app.get('/api/products', ( req, res, next)=> {
+  res.send(products);
 });
 
 module.exports = app;
